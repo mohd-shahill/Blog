@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+</head>
+<body>
+  <h1>Admin Dashboard</h1>
+
+  <p><strong>Total Blog Posts:</strong> <%= totalPosts %></p>
+
+  <h2>All Blog Titles</h2>
+  <ul>
+    <% posts.forEach(post => { %>
+      <li>
+        <a href="/blogs/<%= post.slug %>"><%= post.title %></a>
+      </li>
+    <% }) %>
+  </ul>
+
+  <hr>
+  <h3>Admin Info</h3>
+  <p>Name: <%= admin.name %></p>
+  <p>Email: <%= admin.email %></p>
+
+  <p><a href="/create">
+    <button style="padding: 8px 16px; font-size: 14px;">Create Post</button>  
+  </a></p>
+</body>
+</html>

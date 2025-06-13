@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= post.title %></title>
+</head>
+<body>
+
+  <nav>
+    <a href="/admin">Home</a> >
+    <a href="/blogs">Blog</a> >
+    <span><%= post.title %></span>
+  </nav>
+
+  <h1><%= post.title %></h1>
+
+  <div>
+    Created on: 
+    <%= new Date(post.created_at).toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric'
+    }) %>
+  </div>
+
+  <p><%= post.content %></p>
+
+  <!-- edit post -->
+  <a href="/create/edit/<%= post.id %>">
+    <button>Edit Post</button>
+  </a>
+  <br><br>
+  <!-- delete -->
+  <form action="/create/delete/<%= post.id %>" method="POST">
+    <button type="submit" onclick="return confirm('Delete this post?')">Delete</button>
+  </form>
+
+  <br><br>
+  <a href="/blogs">← Back to all posts</a>
+</body>
+</html>

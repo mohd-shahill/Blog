@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Blog Posts</title>
+</head>
+<body>
+
+  <nav>
+    <a href="/admin">Home</a> >
+    <span>All Blog Posts</span>
+  </nav>
+
+
+  <h1>All Blog Posts</h1>
+    <p><a href="/create">
+      <button style="padding: 8px 16px; font-size: 14px;">Create Post</button>
+    </a></p>
+  <% if (posts.length > 0) { %>
+    <ul>
+      <% posts.forEach(post => { %>
+        <li>
+          <a href="/blogs/<%= post.slug %>"><%= post.title %></a>
+          <div>Created at: <%= new Date(post.created_at).toLocaleDateString('en-GB', {
+                 day: '2-digit',
+                 month: 'short',
+                 year: 'numeric'
+                }) %>
+            </div>
+        </li>
+      <% }) %>
+    </ul>
+  <% } else { %>
+    <p>No posts found.</p>
+  <% } %>
+
+</body>
+</html>

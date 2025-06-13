@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Post</title>
+</head>
+<body>
+
+  <nav>
+    <a href="/admin">Home</a> >
+    <a href="/blogs">Blog</a> >
+    <a href="/blogs/<%= post.slug %>"><%= post.title %></a> >
+    <span>Edit</span>
+  </nav>
+
+  
+  <h1>Edit Blog Post</h1>
+
+  <form action="/create/edit/<%= post.id %>" method="POST">
+    <label>Title:</label><br>
+    <input type="text" name="title" value="<%= post.title %>" required><br><br>
+
+    <label>Slug (URL):</label><br>
+    <input type="text" name="slug" value="<%= post.slug %>" required><br><br>
+
+    <label>Content:</label><br>
+    <textarea name="content" rows="10" cols="50" required><%= post.content %></textarea><br><br>
+
+    <button type="submit">Update Post</button>
+  </form>
+</body>
+</html>
